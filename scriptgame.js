@@ -19,7 +19,7 @@ function mover(disco, tobarra){
   let disco = barras[frombarra].pop()
   if(!barras[tobarra].length){
       if(barras[tobarra][barras[tobarra].length-1]<disco){
-          return barras[frombarra];.push(disco)
+          return barras[frombarra].push(disco)
       }
   }
   let d = document.querySelector(' .d' + disco)

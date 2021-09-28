@@ -1,34 +1,35 @@
-let barras = [[5,4,3,2,1], [], []]
-let posicoes = ['p1', 'p2', 'p3', 'p4', 'p5', 'p0', 'b1', 'b2', 'b3']
+let barras = [[5,4,3,2,1], [], []] //representação das torres
+let posicoes = ['p1', 'p2', 'p3', 'p4', 'p5', 'p0',
+                 'b1', 'b2', 'b3']
 let movimentos = []
-function render(){
-  barras.forwEach((barra, barraid) => {
-    barra.forEach((disco, posicao) =>{
-      let d= document.querySelector(' .d' +disco)
+function render(){ // função para renderizar o jogo
+  barras.forEach((barra, barraid) => { // o forEach esta me dando dois parametros, as barras, e por segundo o indice.
+    barra.forEach((disco, posicao) =>{ // aqui ele me da o disco e a posição.
+      let d=document.querySelector(' .d' +disco)
       posicoes.forEach(posicao => {
-      d.classList.remove(posicoes)
+      d.classList.remove(posicoes) // remove todas as posições, inclusive a p0 que é a posição de transição.
     })
-      d.classList.add('b' + (barraid+1))
-      d.classList.add('p' + (posicao+1))
+      d.classList.add('b' + (barraid+1)) //adicionando a torre
+      d.classList.add('p' + (posicao+1)) //adicionando posição
     })
   })
 }
 
-function mover(disco, tobarra){
-    if(!barras[frombarra].length)return
+function mover(frombarra, tobarra){ // função responsavel pela movimentação dos discos.
+    if(!barras[frombarra].length)return // retirando a possibilidade de movimentos invalidos.
   let disco = barras[frombarra].pop()
-  if(!barras[tobarra].length){
+  if(barras[tobarra].length){
       if(barras[tobarra][barras[tobarra].length-1]<disco){
-          return barras[frombarra].push(disco)
+          return barras[frombarra].push(disco) // devolve o disco para a torre caso o movimento seja invalido
       }
   }
   let d = document.querySelector(' .d' + disco)
   d.classList.add('p0')
   barras[tobarra].push(disco)
-  setTimeout(render,400)
+  setTimeout(render(),400)
 }
 
-function clickbarra(n){
+function clickbarra(n){ //função para click duplo, direcionando a movimentação.
     if (movimentos.length && movimentos[0].lentgh == 1){
         movimentos[0].push(n)
     } else{

@@ -2,7 +2,7 @@ let barras = [[5,4,3,2,1], [], []] //representação das torres
 let posicoes = ['p1', 'p2', 'p3', 'p4', 'p5', 'p0',
                  'b1', 'b2', 'b3']
 let movimentos = []
-function render(){ // função para renderizar o jogo
+function render() { // função para renderizar o jogo
   barras.forEach((barra, barraid) => { // o forEach esta me dando dois parametros, as barras, e por segundo o indice.
     barra.forEach((disco, posicao) =>{ // aqui ele me da o disco e a posição.
       let d=document.querySelector(' .d' +disco)
@@ -43,4 +43,4 @@ function clickbarra(n){ //função para click duplo, direcionando a movimentaç�
     }
 }, 600)
 
-render()
+render();

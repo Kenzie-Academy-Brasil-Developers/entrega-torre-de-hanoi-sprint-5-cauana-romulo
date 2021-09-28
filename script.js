@@ -29,8 +29,14 @@ barraMeio.appendChild('barra')
 const barraFinal = document.getElementById('torre-final')
 barraFinal.appendChild('barra')
 
-// DISCOS >>
+// DISCOS >> 
 
+// USAR PARA O DISCO A PALETA PACMAN
+
+// ROSA #fda2a1
+// AZUL #1cd7dc ou amarelo (ffff00) ou azul do text shadow ver depois (2558f0)
+// LARANJA #ff9203
+// VERMELHO #fb0102
 
 // Criando botão de reset >>
 

@@ -28,7 +28,7 @@ time, mark, audio, video {
 /*ESTILIZAÇÃO DO MOBILE*/
 
 body {
-    background-color: #202020;
+    background-image: url(/wallpaper-hanoi-2.jpeg);
     font-family: 'Press Start 2P', cursive;
     color: white
 
@@ -40,15 +40,73 @@ h2 {
 	margin: 10px;
 	color: white;
     font-size: 19px;
-    text-shadow: 2px 2px 1px #0040ff;
+    text-shadow: 4px 2px 1px #2558f0;
     letter-spacing: 1px;
+    margin-top: 20px;
 }
 
-#header {
-    font-size: 10px;
+/*instruções página inicial*/
+
+#instrutions {
+    margin-top: 50px;
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
 }
+
+#instrutions p {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+
+}
+ol li {
+    font-size: 16px;
+}
+
+#instrutions-2, ol {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#div-play {
+    margin-top: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+button {    
+    font-family: 'Press Start 2P', cursive;
+    border: 4px solid #ffff00;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 4px solid red;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/*quando o botão start for selecionado*/
+
+
+#torre-inicial, #torre-centro, #torre-final {
+    margin: 10px;
+}
+
 
 #game {
     display: flex;
@@ -56,18 +114,43 @@ h2 {
     justify-content: center;
     margin-top: 60px;
     margin-bottom:60px;
+    display: none;
 }
 
-#torre-inicial, #torre-centro, #torre-final {
-    margin: 10px;
+#header {
+    margin-top: 20px;
+    font-size: 10px;
+    display:flex;
+    flex-direction: row;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
 }
+
+#movimentos-write {
+    margin: 0 20px 0 20px;
+}
+
 
 /*ESTILIZAÇÃO PC*/
 
 @media (min-width: 800px) {
 
-   h2 {
-       font-size: 40px;
-   }
+h2 {
+    font-size: 40px;
+    text-shadow: 5px 5px 1px #2558f0;
 }
 
+
+#instrutions {
+    display:flex;
+    flex-direction: column;
+}
+
+ol {
+    align-items: center;
+    align-content: center;
+}
+
+} /*FIM DO MEDIA QUERY Min 720*/

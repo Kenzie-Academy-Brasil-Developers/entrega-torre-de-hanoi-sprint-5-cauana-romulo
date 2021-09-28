@@ -11,15 +11,36 @@
 <h2 class='title'>TORRE DE HANOI</h2>
 
 
+<section id='instrutions' class='instrutions'>
+    <p>INSTRUCTIONS</p>
+    <p id='instrutions-2'>Você deverá mover todos os discos para a torre C, mas para isso temos algumas regras:</p>
+    <ol>
+        <li>Movimentar um só disco de cada vez.</li>
+        <li>Um disco maior não pode ficar acima de um menor</li>
+        <li>Não é permitido movimentar um disco que esteja abaixo de outro</li>
+    </ol>
 
-<section id='game'>
-    <div id='torre-inicial'>TESTE</div>
-    <div id='torre-centro'>TESTE</div>
-    <div id='torre-final'>TESTE</div>
+    <div id='div-play'><button id='play' class='play'>START</button></div>
 </section>
 
-<section id='header'>
-    <p id='movimentos-write'>MOVIMENTS = <p id='movimentos'>0</p></p>
+<section id='game' class='game'>
+    <div id='torre-inicial'>
+        <p>A</p>
+    </div>
+    <div id='torre-centro'>
+        <p>B</p>
+    </div>
+    <div id='torre-final'>
+        <p>C</p>
+    </div>
+    
+
+</section>
+
+<section id='header' class='header'>
+    <button id='reset' class='reset'>RESET</button>
+    <p id='movimentos-write'>MOVES</p>
+    <p id='movimentos'>0</p>
 </section>
 
 <script src="script.js"></script>

@@ -181,25 +181,37 @@ ol {
 .disco5 {
     width: 20px;
     height: 14px;
-    background-color:#ffff00
+    background-color:#ffff00;
+    z-index: 2;
+    transition: left .2s, bottom .2s .2s;
+    pointer-events: none;
 }
 
 .disco4 {    
     width: 35px;
     height: 14px;
-    background-color:#fda2a1
+    background-color:#fda2a1;
+    z-index: 2;
+    transition: left .2s, bottom .2s .2s;
+    pointer-events: none;
 }
 
 .disco3 {    
     width: 50px;
     height: 14px;
-    background-color:#1cd7dc
+    background-color:#1cd7dc;
+    z-index: 2;
+    transition: left .2s, bottom .2s .2s;
+    pointer-events: none;
 }
 
 .disco2 {
     width: 65px;
     height: 14px;
-    background-color:#ff9203
+    background-color:#ff9203;
+    z-index: 2;
+    transition: left .2s, bottom .2s .2s;
+    pointer-events: none;
 }
 
 .disco1 {

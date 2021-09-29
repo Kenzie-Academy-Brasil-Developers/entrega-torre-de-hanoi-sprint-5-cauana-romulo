@@ -43,15 +43,17 @@ h2 {
     text-shadow: 4px 2px 1px #2558f0;
     letter-spacing: 1px;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 /*instruções página inicial*/
 
-#instrutions {
+/* #instrutions { 
     margin-top: 50px;
     display:flex;
     flex-direction: column;
-}
+    
+} */
 
 #instrutions p {
     display:flex;
@@ -61,6 +63,11 @@ h2 {
     margin: 20px;
 
 }
+
+.hidden {
+    display: none;
+}
+
 ol li {
     font-size: 16px;
 }
@@ -102,50 +109,114 @@ ol {
 
 /*quando o botão start for selecionado*/
 
-
-#torre-inicial, #torre-centro, #torre-final {
-    margin: 10px;
+#torres {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
+#palavras {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
 
-#game {
+#palavras p{
+    margin: 25px 50px 10px 50px;
+}
+
+#torre-inicial, #torre-centro, #torre-final {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+#torre-inicial {
+    margin: 0 50px 0 20px;
+}
+
+#torre-centro {
+    margin: 0 50px 0 50px;
+}
+
+#torre-final {
+    margin: 0 20px 0 50px;
+}
+
+.game {
+    display: none; 
+}
+
+.showGame {
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
     justify-content: center;
     margin-top: 60px;
     margin-bottom:60px;
-    display: none;
 }
 
 #header {
-    margin-top: 20px;
-    font-size: 10px;
     display:flex;
     flex-direction: row;
-    display: none;
-    justify-content: center;
     align-items: center;
-    font-size: 14px;
+    justify-content: center;
+    margin-top: 90px;
 }
 
 #movimentos-write {
     margin: 0 20px 0 20px;
 }
 
+/*TORRES E DISCOS MOBILE*/
+
+.barra {
+    height: 140px;
+    width: 8px;
+    background-color: white;
+}
+
+.disco5 {
+    width: 20px;
+    height: 14px;
+    background-color:#ffff00
+}
+
+.disco4 {    
+    width: 35px;
+    height: 14px;
+    background-color:#fda2a1
+}
+
+.disco3 {    
+    width: 50px;
+    height: 14px;
+    background-color:#1cd7dc
+}
+
+.disco2 {
+    width: 65px;
+    height: 14px;
+    background-color:#ff9203
+}
+
+.disco1 {
+    width: 80px;
+    height: 14px;
+    background-color:#fb0102;
+}
+
 
 /*ESTILIZAÇÃO PC*/
 
-@media (min-width: 800px) {
+@media only screen and (min-width: 800px) {
 
 h2 {
     font-size: 40px;
     text-shadow: 5px 5px 1px #2558f0;
-}
-
-
-#instrutions {
-    display:flex;
-    flex-direction: column;
+    margin-bottom: 50px;
 }
 
 ol {
@@ -153,4 +224,68 @@ ol {
     align-content: center;
 }
 
-} /*FIM DO MEDIA QUERY Min 720*/
+/*TORRES E DISCOS PC*/
+
+#torre-inicial {
+    margin: 0 100px 0 100px;
+}
+#torre-centro {
+    margin: 0 100px 0 100px;
+}
+#torre-final {
+    margin: 0 100px 0 100px;
+}
+
+.barra {
+    height: 150px;
+    width: 10px;
+    background-color: white;
+}
+.disco5 {
+    width: 40px;
+    height: 20px;
+    background-color:#ffff00;
+    border: 1px solid white;
+}
+
+.disco4 {    
+    width: 65px;
+    height: 20px;
+    background-color:#fda2a1;
+    border: 1px solid white;
+}
+
+.disco3 {    
+    width: 90px;
+    height: 20px;
+    background-color:#1cd7dc;
+    border: 1px solid white;
+}
+
+.disco2 {
+    width: 115px;
+    height: 20px;
+    background-color:#ff9203;
+    border: 1px solid white;
+}
+
+.disco1 {
+    width: 140px;
+    height: 20px;
+    background-color:#fb0102;
+    border: 1px solid white;
+}
+/*PARTE DE BAIXO*/
+#palavras p{
+    margin: 35px 100px 10px 100px;
+}
+
+#movimentos-write, #movimentos {
+    font-size: 14px;
+}
+
+button {
+    font-size: 16px;
+}
+
+} /*FIM DO MEDIA QUERY Min 800*/

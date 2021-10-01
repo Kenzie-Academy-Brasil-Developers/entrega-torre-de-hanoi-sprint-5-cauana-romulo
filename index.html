@@ -13,7 +13,24 @@
 <body>
     <div class="container">
         <header>
-            <h1>Torre de Hanoi</h1>
+            <h2>Torre de Hanoi</h2>
+
+            <section id='instrutions'>
+                <p>INSTRUCTIONS</p>
+                <p id='instrutions-2'>Você deverá mover todos os discos para a torre C, mas para isso temos algumas regras:</p>
+                <ol>
+                    <li>Movimentar um só disco de cada vez.</li>
+                    <li>Um disco maior não pode ficar acima de um menor</li>
+                    <li>Não é permitido movimentar um disco que esteja abaixo de outro</li>
+                </ol>
+                <div id='div-play'><button type='button' id='btn-start'>START</button></div>
+            </section>
+
+            <main>
+                <div id=main></div>
+                <div id="base"></div>
+            </main>
+
             <div id="cabecalho">
 
                 <div id="extraKenzie">
@@ -32,17 +49,14 @@
                 
             </div>
         </header>
-        
-        <button type="button" id="btn-start">Iniciar</button>
 
         <p id="msg"></p>
-
-        <main>
-            <div id=main></div>
-            <div id="base"></div>
-        </main>
     </div>
 
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">

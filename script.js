@@ -4,6 +4,7 @@ const extraKenzie = document.getElementById('extraKenzie');
 const msg = document.getElementById('msg');
 const movimentos = document.getElementById('movimentos');
 const divBase = document.getElementById('base');
+const instrutions = document.getElementById('instrutions');
 
 // CRIAÇÃO DAS TORRES 
 function criarTorres() {
@@ -97,7 +98,14 @@ const iniciarJogo = () => {
     });
 
     time();
+    hiddenInstrutions()
 }
+
+function hiddenInstrutions() {
+
+    instrutions.classList.add('hidden');
+  };
+
 btnStart.addEventListener('click', iniciarJogo);
 
 
@@ -138,7 +146,7 @@ function validaJogada(torreEscolhida){
 
 // CONFIGURAÇÃO DE MENSAGENS (DE ERRO E FINAL)
 const mensagemErr = () => {
-    msg.innerText = 'MOVIMENTO PROIBIDO!!!';
+    alert('MOVIMENTO PROIBIDO!!!');
     msg.style.color = 'white';
     msg.style.backgroundColor = 'red';
 

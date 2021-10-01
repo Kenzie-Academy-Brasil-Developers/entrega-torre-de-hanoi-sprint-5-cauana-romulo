@@ -27,277 +27,368 @@ time, mark, audio, video {
 
 /*ESTILIZAÇÃO DO MOBILE*/
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-image: url(/wallpaper-hanoi-2.jpeg);
-    font-family: 'Press Start 2P', cursive;
-    color: white
-
+    background-image: url(./wallpaper-hanoi-2.jpeg);
+}
+.container{
+    padding-top: 15px;
+    text-align: center;
 }
 
-h2 {
-    display: flex;
-    justify-content: center;    
-	margin: 10px;
-	color: white;
-    font-size: 19px;
-    text-shadow: 4px 2px 1px #2558f0;
-    letter-spacing: 1px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-/*instruções página inicial*/
-
-/* #instrutions { 
-    margin-top: 50px;
-    display:flex;
-    flex-direction: column;
-    
-} */
-
-#instrutions p {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin: 20px;
-
-}
-
-.hidden {
-    display: none;
-}
-
-ol li {
-    font-size: 16px;
-}
-
-#instrutions-2, ol {
-    font-family: Arial, Helvetica, sans-serif
-}
-
-#div-play {
-    margin-top: 20px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-}
-
-button {    
-    font-family: 'Press Start 2P', cursive;
-    border: 4px solid #ffff00;
-    background-color: black;
+/* HEADER */
+header {
+    text-align: center;
     color: white;
-    padding: 10px;
+}
+header h1 {
+    font-size: 15vw;
+    font-family: 'Londrina Solid';
+    text-transform: uppercase;
+}
+header #cabecalho {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+header #extaKenzie {
+    visibility: hidden;
+    font-family: 'Londrina Solid';
+    font-weight: 100;
+    font-size: 1.1em;
+    text-align: left;
+}
+header #restart {
+    align-self: center;
+    margin-right: -10px;
 }
 
-button:hover {
-    background-color: white;
-    color: black;
-    border: 4px solid red;
-}
-
-ol {
+/* MAIN */
+main {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    align-content: flex-start;
-    margin-top: 20px;
-    margin-bottom: 30px;
 }
 
-/*quando o botão start for selecionado*/
-
-#torres {
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-#palavras {
-    display:flex;
-    flex-direction: row;
+#main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-content: center;
+    margin-top: -10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-#palavras p{
-    margin: 25px 50px 10px 50px;
-}
-
-#torre-inicial, #torre-centro, #torre-final {
-    display:flex;
+#main .torre {
+    width: 12px;
+    height: 100px;
+    margin: 20px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    background-color: white;    
+    border-radius: 10px 10px 0;
 }
-#torre-inicial {
-    margin: 0 50px 0 20px;
+#main .torre:hover {
+    cursor: pointer;
 }
-
-#torre-centro {
-    margin: 0 50px 0 50px;
-}
-
-#torre-final {
-    margin: 0 20px 0 50px;
-}
-
-.game {
-    display: none; 
-}
-
-.showGame {
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    margin-top: 60px;
-    margin-bottom:60px;
-}
-
-#header {
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 90px;
-}
-
-#movimentos-write {
-    margin: 0 20px 0 20px;
-}
-
-/*TORRES E DISCOS MOBILE*/
-
-.barra {
-    height: 140px;
-    width: 8px;
-    background-color: white;
-}
-
-.disco5 {
-    width: 20px;
-    height: 14px;
-    background-color:#ffff00;
-    z-index: 2;
-    transition: left .2s, bottom .2s .2s;
-    pointer-events: none;
-}
-
-.disco4 {    
-    width: 35px;
-    height: 14px;
-    background-color:#fda2a1;
-    z-index: 2;
-    transition: left .2s, bottom .2s .2s;
-    pointer-events: none;
-}
-
-.disco3 {    
+#main .torre .bloco {
     width: 50px;
-    height: 14px;
-    background-color:#1cd7dc;
-    z-index: 2;
-    transition: left .2s, bottom .2s .2s;
-    pointer-events: none;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    background-color: orange;
 }
-
-.disco2 {
-    width: 65px;
-    height: 14px;
-    background-color:#ff9203;
-    z-index: 2;
-    transition: left .2s, bottom .2s .2s;
-    pointer-events: none;
-}
-
-.disco1 {
+#main .torre #bloco1 {
     width: 80px;
-    height: 14px;
-    background-color:#fb0102;
+    background-color: red;
+    cursor: pointer;
 }
-
-
-/*ESTILIZAÇÃO PC*/
-
-@media only screen and (min-width: 800px) {
-
-h2 {
-    font-size: 40px;
-    text-shadow: 5px 5px 1px #2558f0;
-    margin-bottom: 50px;
+#main .torre #bloco2 {
+    width: 110px;
+    background-color: blue;
+    cursor: pointer;
 }
-
-ol {
-    align-items: center;
-    align-content: center;
-}
-
-/*TORRES E DISCOS PC*/
-
-#torre-inicial {
-    margin: 0 100px 0 100px;
-}
-#torre-centro {
-    margin: 0 100px 0 100px;
-}
-#torre-final {
-    margin: 0 100px 0 100px;
-}
-
-.barra {
-    height: 150px;
-    width: 10px;
-    background-color: white;
-}
-.disco5 {
-    width: 40px;
-    height: 20px;
-    background-color:#ffff00;
-    border: 1px solid white;
-}
-
-.disco4 {    
-    width: 65px;
-    height: 20px;
-    background-color:#fda2a1;
-    border: 1px solid white;
-}
-
-.disco3 {    
-    width: 90px;
-    height: 20px;
-    background-color:#1cd7dc;
-    border: 1px solid white;
-}
-
-.disco2 {
-    width: 115px;
-    height: 20px;
-    background-color:#ff9203;
-    border: 1px solid white;
-}
-
-.disco1 {
+#main .torre #bloco3 {
     width: 140px;
-    height: 20px;
-    background-color:#fb0102;
-    border: 1px solid white;
+    background-color:yellow;
+    cursor: pointer;
 }
-/*PARTE DE BAIXO*/
-#palavras p{
-    margin: 35px 100px 10px 100px;
+#main .torre #bloco4 {
+    width: 170px;
+    background-color: green;
+    cursor: pointer;
 }
+#main .torre #bloco5 {
+    width: 200px;
+    background-color: black;
+    cursor: pointer;
+}
+/* BUTTONS */
+.bonus {
+    margin: 10px;
+    width: 120px;
+    cursor: pointer;
+}
+#extraKenzie {
+    display: none;
+}
+#tresDiscos{
+    width: 120px;
+    height: 50px;
+    margin: 2px;
+}
+#quatroDiscos{
+    width: 120px;
+    height: 50px;
+    margin: 2px;
 
-#movimentos-write, #movimentos {
-    font-size: 14px;
+}
+#cincoDiscos{
+    width: 120px;
+    height: 50px;
+    margin: 2px;
+}
+#tresDiscos:hover{
+    background-color: green;
+}
+#quatroDiscos:hover{
+    background-color: green;
+}
+#cincoDiscos:hover{
+    background-color: green;
 }
 
 button {
-    font-size: 16px;
+    border: none;
+    transition: 0.2s, color 0.2s;
+}
+button:hover {
+    cursor: pointer;
+}
+#btn-start {
+    font-size: 20px;
+    padding: 10px 40px;
+    margin-top: -50px;
+    vertical-align: middle;
+    background-color: #7f9c45;
+    color: #fff;
 }
 
-} /*FIM DO MEDIA QUERY Min 800*/
+#btn-restart {
+    display: none;
+    font-size: 15px;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    color: #000;
+}
+#btn-restart:hover {
+    cursor: pointer;
+    background-color: #922e2c;
+    color: #fff;
+}
+
+#msg {
+    position: absolute;
+    z-index: 1;
+    transform: translate(50%, 50%);
+    right: 50%;
+    margin-top: -30px;
+    font-weight: 600;
+    font-size: 8vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 667px) {
+    .container{
+        margin: 0 auto;
+        padding-top: 30px;
+    }
+    /* HEADER */
+    header h1 {
+        font-size: 100px;   
+    }
+    header #cabecalho {
+        width: 85%;
+    }
+    header #extaKenzie {
+        visibility: hidden;
+        display: flex;
+        justify-content: space-between;            
+        font-size: 1.5em;
+    }
+    header #extaKenzie #time-content{
+        margin-left: 50px;
+    }
+    
+    /* #MAIN */
+    #main {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    #main .torre {
+        width: 25px;
+        height: 215px;
+        margin: 80px; 
+        margin-bottom: 0;
+    }
+    #main .torre .bloco {
+        height: 35px;
+    }
+    #main .torre #bloco1 {
+        width: 65px;
+    }
+    #main .torre #bloco2 {
+        width: 100px;
+    }
+    #main .torre #bloco3 {
+        width: 135px;
+    }
+    #main .torre #bloco4 {
+        width: 170px;
+    }
+    #msg {
+        font-size: 40px;
+    }
+    /* MAIN */
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    #main .torre:hover {
+        background-color: rgb(173, 173, 173);
+    }
+    #main .torre .bloco {
+        width: 50px;
+        border-radius: 5px;
+        border: 2px solid #000;
+        background-color: orange;
+        cursor: pointer;
+    }
+    #main .torre #bloco1 {
+        width: 80px;
+        background-color: red;
+        cursor: pointer;
+    }
+    #main .torre #bloco2 {
+        width: 110px;
+        background-color: blue;
+        cursor: pointer;
+    }
+    #main .torre #bloco3 {
+        width: 140px;
+        background-color:yellow;
+        cursor: pointer;
+    }
+    #main .torre #bloco4 {
+        width: 170px;
+        background-color: green;
+        cursor: pointer;
+    }
+    #main .torre #bloco5 {
+        width: 200px;
+        background-color: black;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 380px){
+header h1 {
+    color:rgb(250, 250, 250);
+}
+header #cabecalho {
+    justify-content: center;
+}
+#extraKenzie{
+    display: flex;
+    flex-direction: row;
+}
+#extraKenzie button {
+    width: 75px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    margin-top: 25px;
+}
+.bonus {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+#movimentos{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+#btn-start{
+    height: 39px;
+    font-size: 15px;
+    position: absolute;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    width: 108px;
+    margin-top: 50px;
+    background-color: transparent;
+    border: solid whitesmoke;
+    border-radius: 5px; 
+}
+
+#main {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#time-content{
+    position: absolute;
+    left: 162px;
+    bottom: 20px
+}
+#btn-restart {
+    position: absolute;
+    bottom: 5px;
+    left: 15px;   
+    width: 30%;
+    background-color: transparent;
+    color: whitesmoke;
+    border: solid whitesmoke;
+    border-radius: 5px;
+}
+
+#main .torre #bloco4 {
+    width: 110px;
+}
+#main .torre #bloco3 {
+    width: 86px;
+}
+#main .torre #bloco2 {
+    width: 66px;
+}
+#main .torre #bloco1 {
+    width: 46px;
+}
+#main .torre #bloco0 {
+    width: 26px;
+}
+#extraKenzie {
+    display: none;
+}
+}

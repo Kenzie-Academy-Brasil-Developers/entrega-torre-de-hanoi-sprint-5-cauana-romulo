@@ -1,64 +1,48 @@
+
+  
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Torre de hanoi</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Torre de Hanoi</title>
 </head>
+
 <body>
-<h2 class='title'>TORRE DE HANOI</h2>
+    <div class="container">
+        <header>
+            <h1>Torre de Hanoi</h1>
+            <div id="cabecalho">
 
+                <div id="extraKenzie">
+                    <div class="bonus">
+                        <button id="tresDiscos">3 discos</button>
+                        <button id="quatroDiscos">4 discos</button>
+                        <button id="cincoDiscos">5 discos</button>
+                    </div>
+                    <p id='movimentos'>Movimentos: <span>0</span></p>
+                    <p id="time-content">00:00</p>
+                </div>
 
-<section id='instrutions'>
-    <p>INSTRUCTIONS</p>
-    <p id='instrutions-2'>Você deverá mover todos os discos para a torre C, mas para isso temos algumas regras:</p>
-    <ol>
-        <li>Movimentar um só disco de cada vez.</li>
-        <li>Um disco maior não pode ficar acima de um menor</li>
-        <li>Não é permitido movimentar um disco que esteja abaixo de outro</li>
-    </ol>
+                <div id="restart">
+                    <button type="button" id="btn-restart">Reiniciar</button>
+                </div>
+                
+            </div>
+        </header>
+        
+        <button type="button" id="btn-start">Iniciar</button>
 
-    <div id='div-play'><button id='play' class='play'>START</button></div>
-</section>
+        <p id="msg"></p>
 
-<section class='game'>
-    <div id ='torres'>
-    <div id='torre-inicial' onclick="clickbarra(0)">
+        <main>
+            <div id=main></div>
+            <div id="base"></div>
+        </main>
     </div>
-    <div id='torre-centro' onclick="clickbarra(1)">
-    </div>
-    <div id='torre-final' onclick="clickbarra(2)">
-    </div>
-    </div>
-    <div id='palavras'>
-        <p>A</p>
-        <p>B</p>
-        <p>C</p>
-    </div>
-    <div id='header'>
-        <button id='reset'>RESET</button>
-        <p id='movimentos-write'>MOVES</p>
-        <p id='movimentos'>0</p>   
 
-</section>
-
-<section id='teste'>
-    <div class='t1'></div>
-    <div class='t2'></div>
-    <div class='t3'></div>
-    <div class='t4'></div>
-    <div class='t5'></div>
-</section>
-
-
-
-<script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-

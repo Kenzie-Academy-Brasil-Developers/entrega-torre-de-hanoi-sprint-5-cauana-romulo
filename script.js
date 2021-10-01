@@ -1,71 +1,200 @@
-// Cauana escrever abaixo a partir daqui
+// BASICO
+const main = document.getElementById('main');
+const extraKenzie = document.getElementById('extraKenzie');
+const msg = document.getElementById('msg');
+const movimentos = document.getElementById('movimentos');
+const divBase = document.getElementById('base');
+
+// CRIAÇÃO DAS TORRES 
+function criarTorres() {
+    for (let i = 1; i <= 3; i++) {
+        const torre = document.createElement('div');
+        torre.classList.add('torre');
+        torre.id = 'torre' + i;
+        main.appendChild(torre);
+    }
+}
+
+// CRIAÇÃO DOS BLOCOS
+function criarBlocos(n) {
+    for (let i = 0; i < n; i++) {
+        const bloco = document.createElement('div');
+        bloco.classList.add('bloco');
+        bloco.id = 'bloco' + i;
+        torre1.appendChild(bloco);
+    }
+}
+
+// BOTAO NIVEIS DE DIFICULDADE
+const tresDiscos = document.getElementById("tresDiscos");
+const quatroDiscos = document.getElementById('quatroDiscos');
+const cincoDiscos = document.getElementById('cincoDiscos');
+const resultsDiv = document.getElementById('results');
+
+const desabilitarBotoes = () => {
+    tresDiscos.disabled = true;
+    quatroDiscos.disabled=true;
+    cincoDiscos.disabled = true;
+}
+
+// FUNÇÃO DO DESABILITADO PARA NAO FICAR REPETITIVO
+let discos = 2;
+
+tresDiscos.addEventListener("click", function () {
+    discos = 3;
+    desabilitarBotoes()
+    resultsDiv.innerHTML = criarBlocos(3)
+})
+quatroDiscos.addEventListener("click", function () {
+    discos = 4;
+    desabilitarBotoes()
+    resultsDiv.innerHTML = criarBlocos(4)
+
+})
+cincoDiscos.addEventListener("click", function () {
+    discos = 5;
+    desabilitarBotoes()
+    resultsDiv.innerHTML = criarBlocos(5)
+})
+
+// RENICIAR O JOGO SEM SAIR DA PÁGINA
+const btnRestart = document.getElementById('btn-restart');
+const reiniciarJogo = () => {
+    torres.forEach((item) => {
+        item.innerHTML = '';
+    });
+
+    msg.innerText = '';
+    count = 0;
+    movimentos.innerText = `Movimentos: ${count}`;
+
+    criarBlocos();
+    clearInterval(cronometro);
+    time();
+    main.style.pointerEvents = 'visible';
+    msg.style.padding = 0;
+
+    tresDiscos.disabled = false;
+    quatroDiscos.disabled=false;
+    cincoDiscos.disabled = false;
+}
+btnRestart.addEventListener('click', reiniciarJogo);
+
+// BOTAO DE INICIAR O JOGO + CONTAR OS MOVIMENTOS
+const btnStart = document.getElementById('btn-start');
+const iniciarJogo = () => {
+    btnStart.style.display = 'none';
+    btnRestart.style.display = 'inline-block';
+    extraKenzie.style.display = 'block';
+    divBase.style.display = 'block';
+    criarTorres();
+    criarBlocos();
+    movimentos.innerText = `Movimentos: ${count}`;
+
+    torres = document.querySelectorAll('.torre');
+    torres.forEach((item) => {
+        item.addEventListener("click", escolhaTorre);
+    });
+
+    time();
+}
+btnStart.addEventListener('click', iniciarJogo);
 
 
-const botaoStart = document.getElementById('play')
-botaoStart.addEventListener('click' , hiddenInstrutionsEShowGame);
+// LÓGICA DO JOGO 
+let blocoAtual = '';
+let count = 0;
 
-// Fazer as instruções e o botão start ficarem escondidos quando o jogo se inicia >>
+function escolhaTorre(e) {
+    const torreEscolhida = e.currentTarget;
+    validaJogada(torreEscolhida);
+    
+}
+function validaJogada(torreEscolhida){
+    if (blocoAtual === '' && torreEscolhida.childElementCount !== 0) {
+        blocoAtual = torreEscolhida.firstElementChild;
+    }
+    if (blocoAtual === '' && torreEscolhida.childElementCount === 0) {
+        mensagemErr();
+    }
+    if (torreEscolhida.childElementCount === 0) {
+        torreEscolhida.insertAdjacentElement('afterbegin', blocoAtual);
+        count++
+        blocoAtual = '';
+    }
+    if (torreEscolhida.firstElementChild.clientWidth > blocoAtual.clientWidth) {
+        torreEscolhida.insertAdjacentElement('afterbegin', blocoAtual);
+        count++
+        blocoAtual = '';
+    }
+    if (torreEscolhida.firstElementChild.clientWidth < blocoAtual.clientWidth) {
+        mensagemErr();
+        blocoAtual = '';
+    }
+    //CONTADOR DE MOVIMENTOS EXECUTADOS
+    movimentos.innerText = `Movimentos: ${count}`;
+    final();
+}
 
-let instrutions = document.getElementById('instrutions');
-let game = document.getElementsByClassName('game')[0]
+// CONFIGURAÇÃO DE MENSAGENS (DE ERRO E FINAL)
+const mensagemErr = () => {
+    msg.innerText = 'MOVIMENTO PROIBIDO!!!';
+    msg.style.color = 'white';
+    msg.style.backgroundColor = 'red';
 
-function hiddenInstrutionsEShowGame() {
+    setTimeout(() => {
+        msg.innerText = '';
+    }, 1000);
+}
+const mensagemFinal = () => {
+    msg.innerHTML = 'VITÓRIA!!!';
+    msg.style.color = 'gold';
+    msg.style.backgroundColor = 'black';
+    msg.style.padding = 20 + 'px';
+    msg.style.border = 'double'
 
-  instrutions.classList.add('hidden'); //Estou adicionando uma classe no style com display none
-  game.classList.remove('game')
-  game.classList.add('showGame')
-  torre()  
-};
+}
+// MENSAGEM FINAL DO VENCEDOR
+const final = () => {
+    if (torres[2].childElementCount === discos) {
+        mensagemFinal();
+        main.style.pointerEvents = 'none';
+        clearInterval(cronometro);       
+    }
+}
 
-// Criando as barras e os discos >>
-function torre() {
-// BARRAS >>
-//fazer um style para a classe barra1/2/3 > acertar a largura altura e background por lá e no css definir, pegar um barra.setatrribute e definir 
-const barra = document.createElement('div')
-barra.classList.add('barra')
+//CRONOMETRO
+const timeContent = document.getElementById('time-content');
+let cronometro;
 
+const time = () => {
+    let minuto = 0;
+    let segundo = 0;
+    let cent = 0;
 
-const barraInicial = document.getElementById('torre-inicial')
-barraInicial.setAttribute('class', 'barra')
+    cronometro = setInterval(() => {
+        cent++;
+        if (cent === 99) {
+            segundo++;
+            cent = 0;
+            if (segundo === 59) {
+                minuto++
+                segundo = 0;
+            }
+        }
 
-const barraMeio = document.getElementById('torre-centro')
-barraMeio.setAttribute('class', 'barra')
+        showTime(minuto, segundo, cent)
+    }, 10)
+}
 
-const barraFinal = document.getElementById('torre-final')
-barraFinal.setAttribute('class', 'barra')
-
-// // DISCOS 
-
-const disco1 = document.createElement('div')
-const disco2 = document.createElement('div')
-const disco3 = document.createElement('div')
-const disco4 = document.createElement('div')
-const disco5 = document.createElement('div')
-
-disco1.classList.add('disco1')
-disco2.classList.add('disco2')
-disco3.classList.add('disco3')
-disco4.classList.add('disco4')
-disco5.classList.add('disco5')
-
-barraInicial.appendChild(disco5);
-barraInicial.appendChild(disco4);
-barraInicial.appendChild(disco3);
-barraInicial.appendChild(disco2);
-barraInicial.appendChild(disco1);
-
-
-} // fim da função torre
-
-// Criando botão de reset >>
-
-let botaoReset = document.getElementById('reset')
-console.log(botaoReset)
-botaoReset.addEventListener('click', function reset() {
-    document.getElementById("game").reset();  
-  })
-
-// Adicionando contagem de movimento >>
-
-
-//Rômulo escrever abaixo a partir daqui
+const showTime = (min, seg, cen) => {
+    if (cen < 10 && seg < 10 && min < 10) {
+        timeContent.innerText = `0${min} : 0${seg}`
+    } else if (cen >= 10 && seg < 10 && min < 10) {
+        timeContent.innerText = `0${min} : 0${seg}`
+    } else if (cen >= 10 && seg >= 10 && min < 10) {
+        timeContent.innerText = `0${min} : ${seg}`
+    } else if (cen >= 10 && seg >= 10 && min >= 10) {
+        timeContent.innerText = `${min} : ${seg}`
+    }
+}

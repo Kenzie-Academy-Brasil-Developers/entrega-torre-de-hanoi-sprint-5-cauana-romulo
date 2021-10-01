@@ -28,18 +28,31 @@ time, mark, audio, video {
 /*ESTILIZAÇÃO DO MOBILE*/
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    background-image: url('wallpaper-hanoi-2.jpeg');
+    font-family: 'Press Start 2P', cursive;
+    color: white
+
 }
 
-body {
-    background-image: url(./wallpaper-hanoi-2.jpeg);
+h2 {
+    display: flex;
+    justify-content: center;    
+	margin: 10px;
+	color: white;
+    font-size: 19px;
+    text-shadow: 4px 2px 1px #2558f0;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
 }
+
 .container{
     padding-top: 15px;
+    /* display:flex;
     text-align: center;
+    justify-content: center; */
 }
 
 /* HEADER */
@@ -71,8 +84,77 @@ header #restart {
     align-self: center;
     margin-right: -10px;
 }
+/*ANTES DO BOTÃO START COMEÇAR*/
+
+#instrutions p {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+
+}
+
+.hidden {
+    display: none;
+}
+
+ol li {
+    font-size: 16px;
+}
+
+#instrutions-2, ol {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#div-play {
+    margin-top: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+button {    
+    font-family: 'Press Start 2P', cursive;
+    border: 4px solid #ffff00;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 4px solid red;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+ol li {
+    font-size: 14px;
+}
 
 /* MAIN */
+
+#torre1 {
+    margin: 0 50px 0 20px;
+}
+
+#torre2 {
+    margin: 0 50px 0 50px;
+}
+
+#torre3 {
+    margin: 0 20px 0 50px;
+}
 main {
     display: flex;
     flex-direction: column;
@@ -81,7 +163,7 @@ main {
 #main {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-top: -10px;
@@ -90,49 +172,46 @@ main {
 #main .torre {
     width: 12px;
     height: 100px;
-    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     background-color: white;    
-    border-radius: 10px 10px 0;
 }
 #main .torre:hover {
     cursor: pointer;
 }
 #main .torre .bloco {
-    width: 50px;
+    width: 35px;
     height: 20px;
-    border-radius: 5px;
     border: 2px solid #000;
-    background-color: orange;
+    background-color: #fda2a1;
 }
 #main .torre #bloco1 {
-    width: 80px;
-    background-color: red;
+    width: 55px;
+    background-color: #1cd7dc;
     cursor: pointer;
 }
 #main .torre #bloco2 {
-    width: 110px;
-    background-color: blue;
+    width: 75px;
+    background-color: #ff9203;
     cursor: pointer;
 }
 #main .torre #bloco3 {
-    width: 140px;
-    background-color:yellow;
+    width: 95px;
+    background-color: #fb0102;
     cursor: pointer;
 }
 #main .torre #bloco4 {
-    width: 170px;
-    background-color: green;
+    width: 115px;
+    background-color: #ffff00;
     cursor: pointer;
 }
-#main .torre #bloco5 {
-    width: 200px;
+/* #main .torre #bloco5 {
+    width: 100px;
     background-color: black;
     cursor: pointer;
-}
+} */
 /* BUTTONS */
 .bonus {
     margin: 10px;
@@ -158,44 +237,23 @@ main {
     height: 50px;
     margin: 2px;
 }
-#tresDiscos:hover{
-    background-color: green;
-}
-#quatroDiscos:hover{
-    background-color: green;
-}
-#cincoDiscos:hover{
-    background-color: green;
-}
+
 
 button {
-    border: none;
     transition: 0.2s, color 0.2s;
 }
 button:hover {
     cursor: pointer;
 }
-#btn-start {
-    font-size: 20px;
-    padding: 10px 40px;
-    margin-top: -50px;
-    vertical-align: middle;
-    background-color: #7f9c45;
-    color: #fff;
-}
+
 
 #btn-restart {
     display: none;
     font-size: 15px;
     padding: 8px 10px;
     margin-bottom: 5px;
-    color: #000;
 }
-#btn-restart:hover {
-    cursor: pointer;
-    background-color: #922e2c;
-    color: #fff;
-}
+
 
 #msg {
     position: absolute;
@@ -209,7 +267,8 @@ button:hover {
 }
 
 /* MEDIA QUERIES */
-@media (min-width: 667px) {
+@media (min-width: 800px) {
+
     .container{
         margin: 0 auto;
         padding-top: 30px;
@@ -271,7 +330,6 @@ button:hover {
     }
     #main .torre .bloco {
         width: 50px;
-        border-radius: 5px;
         border: 2px solid #000;
         background-color: orange;
         cursor: pointer;
@@ -296,99 +354,32 @@ button:hover {
         background-color: green;
         cursor: pointer;
     }
-    #main .torre #bloco5 {
+    /* #main .torre #bloco5 {
         width: 200px;
         background-color: black;
         cursor: pointer;
+    } */
+
+    /*antes do botão start*/
+
+    h2 {
+        font-size: 50px;
+
     }
-}
 
-@media screen and (max-width: 380px){
-header h1 {
-    color:rgb(250, 250, 250);
-}
-header #cabecalho {
-    justify-content: center;
-}
-#extraKenzie{
-    display: flex;
-    flex-direction: row;
-}
-#extraKenzie button {
-    width: 75px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 15px;
-    margin-top: 25px;
-}
-.bonus {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-}
-#movimentos{
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
+    ol {
+        align-items: center;
+        align-content: center;
+    }
 
-#btn-start{
-    height: 39px;
-    font-size: 15px;
-    position: absolute;
-    left: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    bottom: 10px;
-    width: 108px;
-    margin-top: 50px;
-    background-color: transparent;
-    border: solid whitesmoke;
-    border-radius: 5px; 
-}
+    ol li {
+        font-size: 20px;
+    }
 
-#main {
-    flex-direction: row;
-    justify-content: space-around;
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-#time-content{
-    position: absolute;
-    left: 162px;
-    bottom: 20px
-}
-#btn-restart {
-    position: absolute;
-    bottom: 5px;
-    left: 15px;   
-    width: 30%;
-    background-color: transparent;
-    color: whitesmoke;
-    border: solid whitesmoke;
-    border-radius: 5px;
-}
+    #instrutions p {
+        font-size: 20px;
+        margin: 30px;
+    }
 
-#main .torre #bloco4 {
-    width: 110px;
-}
-#main .torre #bloco3 {
-    width: 86px;
-}
-#main .torre #bloco2 {
-    width: 66px;
-}
-#main .torre #bloco1 {
-    width: 46px;
-}
-#main .torre #bloco0 {
-    width: 26px;
-}
-#extraKenzie {
-    display: none;
-}
+    /*depois do botão start*/
 }
